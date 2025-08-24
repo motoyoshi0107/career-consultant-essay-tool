@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>【キャリコン論述】事例記録を作ろう！</title>
+  <meta name="description" content="キャリアコンサルティング協議会用の論述試験対策ツール。テーマを選ぶだけで事例記録を自動生成し、設問付きで論述練習ができます。">
+  
+  <!-- ファビコン -->
+  <link rel="icon" href="./favicon.png" type="image/png">
+  <link rel="shortcut icon" href="./favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="./favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon.png">
+  <link rel="icon" sizes="192x192" href="./favicon.png">
+  
+  <!-- OGP -->
+  <meta property="og:title" content="【キャリコン論述】事例記録を作ろう！">
+  <meta property="og:description" content="キャリアコンサルティング協議会用の論述試験対策ツール。テーマを選ぶだけで事例記録を自動生成し、設問付きで論述練習ができます。">
+  <meta property="og:image" content="./OGP2.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="【キャリコン論述】事例記録を作ろう！">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="【キャリコン論述】事例記録を作ろう！">
+  <meta name="twitter:description" content="キャリアコンサルティング協議会用の論述試験対策ツール。テーマを選ぶだけで事例記録を自動生成し、設問付きで論述練習ができます。">
+  <meta name="twitter:image" content="./OGP2.png">
+  
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="container header">
+    <div class="header-top">
+      <div>
+        <div class="hero-content">
+          <h1>【キャリコン論述】事例記録を作ろう！</h1>
+          <p class="sub">キャリアコンサルティング協議会用の論述試験対策ツール</p>
+        </div>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" onclick="toggleTheme()">
+        <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 7a5 5 0 100 10 5 5 0 000-10zM12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="container grid">
+    <section class="card help-card">
+      <h2>📚 ツールの使い方</h2>
+      
+      <div class="usage-steps">
+        <div class="usage-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>テーマを選択</h4>
+            <p>下記のテーマ一覧から相談内容を1つ選んでください</p>
+          </div>
+        </div>
+        
+        <div class="usage-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>事例記録を生成</h4>
+            <p>「生成する」ボタンを押すと、自動で事例記録が作成されます</p>
+          </div>
+        </div>
+        
+        <div class="usage-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>設問に解答</h4>
+            <p>設問1〜4の解答欄に、事例記録を基に回答を記入してください</p>
+          </div>
+        </div>
+        
+        <div class="usage-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>PDF保存</h4>
+            <p>「解答をPDF保存」で事例記録と解答をまとめて保存できます</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="usage-tips">
+        <h4>💡 使い方のコツ</h4>
+        <ul>
+          <li><strong>別パターン：</strong> 同じテーマで別の事例記録を生成</li>
+          <li><strong>手動編集：</strong> 既存の事例記録を貼り付けて練習可能</li>
+          <li><strong>文字数カウント：</strong> リアルタイムで文字数を確認</li>
+          <li><strong>ChatGPT：</strong> AIでより詳細な事例記録を生成 <span class="recommend-text">※オススメ</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>基本情報</h2>
+
+      <label class="label">テーマ <span class="required">*必須</span></label>
+      <select id="theme" required>
+        <option value="">-- テーマを選択してください --</option>
+        <option>転職・キャリア転機</option>
+        <option>ワークライフバランス</option>
+        <option>職場の人間関係・役割葛藤</option>
+        <option>メンタル不調・適応困難</option>
+        <option>育児と仕事の両立</option>
+        <option>介護と仕事の両立</option>
+        <option>スキル・成長停滞</option>
+        <option>セカンドキャリア・定年後</option>
+        <option>新卒・就職活動</option>
+        <option>昇進・昇格への不安</option>
+        <option>配置転換・異動</option>
+        <option>職場でのハラスメント</option>
+        <option>非正規雇用・雇用不安</option>
+        <option>副業・複業の検討</option>
+        <option>起業・独立志向</option>
+        <option>リモートワーク適応</option>
+        <option>職場復帰支援</option>
+        <option>キャリアプラン不明確</option>
+        <option>職業価値観の混乱</option>
+        <option>学び直し・リスキル</option>
+        <option>女性のキャリア継続</option>
+        <option>ミドル世代の転職</option>
+        <option>職場でのコミュニケーション</option>
+        <option>仕事のやりがい喪失</option>
+        <option>過労・労働時間問題</option>
+        <option>職場での孤立感</option>
+        <option>キャリアチェンジ</option>
+        <option>専門性・スキル向上</option>
+        <option>マネジメント能力開発</option>
+        <option>職場での評価・処遇</option>
+        <option>組織風土・企業文化</option>
+        <option>海外勤務・グローバル</option>
+        <option>障害者雇用・合理的配慮</option>
+        <option>LGBTQ+・多様性</option>
+        <option>メンタルヘルス・復職</option>
+        <option>職業適性・自己理解</option>
+        <option>経済的不安・収入</option>
+        <option>職場での世代間ギャップ</option>
+        <option>フリーランス・個人事業</option>
+      </select>
+
+      <div class="actions">
+        <button id="gen">生成する</button>
+        <button id="regen" type="button">別パターン</button>
+        <div class="chatgpt-container">
+          <a href="https://chatgpt.com/g/g-68aa77e9d3608191a3441d94a0a176e7-kiyarikonlun-shu-shi-li-ji-lu-li-kiyarixie-yong" target="_blank" rel="noopener noreferrer">
+            <button type="button" class="chatgpt-button">ChatGPTで生成する</button>
+          </a>
+          <span class="recommend-note">※オススメ</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card output-card">
+      <h2>事例記録</h2>
+      <div class="preview-controls">
+        <button id="toggleEdit" type="button">手動編集モード</button>
+        <button id="clearRecord" type="button">クリア</button>
+      </div>
+      <div class="edit-mode-help">
+        <p>💡 <strong>手動編集モード：</strong> 既存の事例記録を貼り付けたり、自分で作成した事例を編集できます。設問の練習に活用してください。</p>
+      </div>
+      <pre id="preview" class="preview">ここに事例記録が表示されます。</pre>
+      <textarea id="manualRecord" class="preview-edit" placeholder="事例記録をここに貼り付けまたは入力してください..."></textarea>
+    </section>
+
+    <section class="card questions-card">
+      <h2>設問（論述対策）</h2>
+      
+      <div class="question-block">
+        <h3>設問１</h3>
+        <p class="question-text">事例記録の中の「相談の概要」【略Ａ】の記載に相当する、相談者がこの面談で相談したいことは何か。事例記録を手掛かりに記述せよ。（10点）</p>
+        <textarea id="answer1" class="underline-answer answer-2-lines answer-43chars-per-line" placeholder="設問１の回答を入力してください" maxlength="87" rows="2"></textarea>
+        <div class="answer-footer">
+          <div class="char-count">文字数: <span id="count1">0</span> / 目安: 75〜85文字</div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <h3>設問２</h3>
+        <p class="question-text">事例記録の【下線Ｂ】について、この事例を担当したキャリアコンサルタントがどのような意図で応答したと考えるかを記述せよ。（10点）</p>
+        <textarea id="answer2" class="underline-answer answer-2-lines answer-43chars-per-line" placeholder="設問２の回答を入力してください" maxlength="87" rows="2"></textarea>
+        <div class="answer-footer">
+          <div class="char-count">文字数: <span id="count2">0</span> / 目安: 75〜85文字</div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <h3>設問３</h3>
+        <p class="question-text">あなたが考える相談者の問題（①）とその根拠（②）について、相談者の言動を通じて、具体的に記述せよ。（20点）2×10点</p>
+        
+        <div class="sub-question">
+          <h4>① 問題</h4>
+          <textarea id="answer3a" class="underline-answer answer-2-lines answer-41chars-per-line" placeholder="相談者の問題を記述してください" rows="2"></textarea>
+          <div class="answer-footer">
+            <div class="char-count">文字数: <span id="count3a">0</span> / 目安: 70〜80文字</div>
+          </div>
+        </div>
+        
+        <div class="sub-question">
+          <h4>②その根拠</h4>
+          <textarea id="answer3b" class="underline-answer answer-3-lines answer-41chars-per-line" placeholder="問題の根拠を記述してください" rows="3"></textarea>
+          <div class="answer-footer">
+            <div class="char-count">文字数: <span id="count3b">0</span> / 目安: 110〜120文字</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <h3>設問４</h3>
+        <p class="question-text">設問３で答えた内容を踏まえ、今後あなたがこのケースを担当するとしたら、どのような方針でキャリアコンサルティングを進めていくか記述せよ。（10点）</p>
+        <textarea id="answer4" class="underline-answer answer-6-lines answer-43chars-per-line" placeholder="設問４の回答を入力してください" rows="6"></textarea>
+        <div class="answer-footer">
+          <div class="char-count">文字数: <span id="count4">0</span> / 目安: 230〜250文字</div>
+        </div>
+      </div>
+
+      <!-- 解答PDF保存ボタン -->
+      <div class="actions" style="margin-top: 20px; text-align: center;">
+        <button id="exportAnswersPdf" type="button" onclick="handlePdfExport()">解答をPDF保存</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PDF出力用の隠しコンテンツ -->
+  <div class="pdf-export-content" id="pdfContent">
+    <h1>キャリアコンサルティング論述試験 解答用紙</h1>
+    <div id="pdfAnswers">
+      <!-- JavaScriptで動的に生成 -->
+    </div>
+  </div>
+
+  <footer class="container footer">
+    <small>Created by motoyoshi | <a href="https://x.com/motoyoshi0107" target="_blank" rel="noopener noreferrer">𝕏</a> | <a href="https://www.instagram.com/motoyoshi_career/" target="_blank" rel="noopener noreferrer">Instagram</a> | <a href="https://note.com/motoyoshi_note" target="_blank" rel="noopener noreferrer">note</a> | <a href="https://line.me/R/ti/p/@893oddty?oat_content=url" target="_blank" rel="noopener noreferrer">公式LINE</a> | <a href="https://www.motoyoshisan.com/" target="_blank" rel="noopener noreferrer">Blog</a></small>
+  </footer>
+
+  <!-- 共有ボタン -->
+  <div class="share-buttons">
+    <a href="#" id="shareX" class="share-btn share-x" title="Xで共有" onclick="shareToX()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+    </a>
+    <a href="#" id="shareLINE" class="share-btn share-line" title="LINEで共有" onclick="shareToLINE()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.628-.629.628M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+      </svg>
+    </a>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
