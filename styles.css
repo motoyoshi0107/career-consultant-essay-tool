@@ -83,6 +83,51 @@ button {
   white-space: nowrap;
 }
 
+.usage-guide-section {
+  margin-top: 12px;
+  text-align: center;
+  width: 100%;
+}
+
+.usage-guide-image {
+  margin-bottom: 8px;
+}
+
+.usage-guide-image a {
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.usage-guide-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.usage-guide-image a:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.usage-guide-link a {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+}
+
+.usage-guide-link a:hover {
+  background: rgba(122, 162, 255, 0.1);
+  border: 1px solid var(--accent);
+  text-decoration: none;
+}
+
 #exportAnswersPdf {
   width: 200px !important;
   padding: 10px 20px !important;
